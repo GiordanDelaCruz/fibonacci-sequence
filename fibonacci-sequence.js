@@ -9,8 +9,6 @@
 // Instance variables
 var n;
 var currentNum = 0;
-var preNum = 0;
-var tempStorage = 0;
 var fiboArr = [];
 
 // Getting the number of terms from the user & generating the sequence
@@ -25,18 +23,16 @@ function fibonacciGenarator(n){
   
   for(var i = 0; i < n; i++){
     
-    // First term 
-    if(i == 0){
-      fiboArr.push(0);
-      preNum = 1;
+     if(i === 0){
+        fiboArr.push(0);
 
-    }// Every other term
-    else{
-       tempStorage = currentNum;
-       currentNum = currentNum + preNum;
-       preNum = tempStorage;
-       fiboArr.push(currentNum);
-    } 
+     }else if(i ===1){
+        fiboArr.push(1);
+
+     }else{
+        currentNum = fiboArr[i-1] + fiboArr[i-2];
+        fiboArr.push(currentNum); 
+     }
 
   }// End of For Loop
 
